@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="We Will Vote Advocacy — nonpartisan policy campaigns that make it easier for every eligible voter to participate, led by the Institute for Responsible Government and the We Will Vote coalition."/>
+<meta name="theme-color" content="#083a51"/>
+<title>Advocacy — We Will Vote</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute; top: -100%; left: 0;
+    background: #38b1ea; color: #083a51;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.75rem 1.5rem; z-index: 9999;
+    text-decoration: none; border-radius: 0 0 8px 0;
+    transition: top 0.15s;
+  }
+  .skip-link:focus { top: 0; outline: 3px solid #083a51; outline-offset: 2px; }
+
+  /* ── GLOBAL FOCUS ── */
+  :focus-visible {
+    outline: 3px solid #38b1ea;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── SR-ONLY ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :root {
+    --navy:     #083a51;
+    --blue:     #106a94;
+    --cyan:     #38b1ea;
+    --cyan-lt:  #dce2e8;
+    --green:    #1b6b3a;
+    --green-lt: #e8f5e9;
+    --white:    #ffffff;
+    --offwhite: #f6f7f9;
+    --light:    #eef0f4;
+    --gray:     #4a5568;
+    --border:   #dce2e8;
+    --on-dark-body: #a8cfe0;
+    --on-dark-muted: #7fb8d4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--navy); }
+
+  /* ── SHARED SITE NAV ── */
+  .site-nav {
+    background: #083a51;
+    padding: 0 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  .site-nav-inner {
+    max-width: 1020px; margin: 0 auto;
+    height: 60px; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .site-nav-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+    color: #ffffff; letter-spacing: -0.02em;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  .site-nav-logo span { color: #38b1ea; }
+  .site-nav-links { display: flex; align-items: center; gap: 0.25rem; }
+  .site-nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.76rem; font-weight: 500;
+    color: #a8cfe0;
+    text-decoration: none; padding: 0.35rem 0.7rem;
+    border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap;
+  }
+  .site-nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.07); }
+  .site-nav-link.active { color: #38b1ea; font-weight: 600; background: rgba(56,177,234,0.1); }
+  .site-nav-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+  @media (max-width: 640px) {
+    .site-nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
+    .site-nav-divider { display: none; }
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--navy);
+    background-image: linear-gradient(135deg, #083a51 0%, #0c5070 60%, #106a94 100%);
+    padding: 3.5rem 2rem 3rem;
+    border-bottom: 3px solid var(--green);
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338b1ea' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .page-header-inner { max-width: 1020px; margin: 0 auto; position: relative; }
+  .page-eyebrow {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--cyan);
+    display: block; margin-bottom: 0.6rem;
+  }
+  .page-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+    color: var(--white); letter-spacing: -0.02em; line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  .page-header-desc { font-size: 0.97rem; color: #c8e8f5; line-height: 1.7; max-width: 600px; }
+
+  /* ── LAYOUT ── */
+  .page-body { max-width: 1020px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+  .section-block { margin-bottom: 4rem; }
+  .section-block:last-child { margin-bottom: 0; }
+  hr.section-divider { border: none; border-top: 1.5px solid var(--border); margin: 3.5rem 0; }
+
+  .sec-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem; }
+  .sec-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.6rem; line-height: 1.2; }
+  .sec-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.75; max-width: 600px; margin-bottom: 2rem; }
+
+  /* ── IRG FEATURE CARD ── */
+  .irg-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(8,58,81,0.08);
+  }
+  .irg-card-top {
+    background: linear-gradient(135deg, #083a51 0%, #0c5070 60%, #106a94 100%);
+    padding: 2rem 2.25rem;
+    display: flex; align-items: flex-start; gap: 1.75rem;
+  }
+  @media (max-width: 600px) { .irg-card-top { flex-direction: column; gap: 1rem; } }
+  .irg-logo-placeholder {
+    width: 96px; height: 64px; flex-shrink: 0;
+    background: rgba(255,255,255,0.12); border: 1.5px dashed rgba(255,255,255,0.25);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-align: center; line-height: 1.3;
+  }
+  .irg-card-heading { flex: 1; }
+  .irg-card-tag {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem;
+  }
+  .irg-card-name { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; line-height: 1.2; }
+  .irg-card-formerly { font-size: 0.76rem; color: var(--on-dark-body); font-style: italic; }
+  .irg-card-body { padding: 2rem 2.25rem; }
+  .irg-card-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.78; margin-bottom: 1.25rem; }
+  .irg-cta {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.84rem; font-weight: 700; color: var(--green);
+    text-decoration: underline; transition: color 0.15s;
+  }
+  .irg-cta:hover { color: var(--navy); }
+
+  /* ── POLICY CAMPAIGN CARDS ── */
+  .policy-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .policy-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 1.6rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .policy-card:hover { border-color: var(--green); box-shadow: 0 6px 24px rgba(27,107,58,0.1); transform: translateY(-2px); }
+  .policy-card-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--green-lt); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.4rem; flex-shrink: 0;
+  }
+  .policy-card-label {
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--cyan);
+  }
+  .policy-card-title { font-size: 1rem; font-weight: 800; color: var(--navy); line-height: 1.3; }
+  .policy-card-body { font-size: 0.82rem; color: var(--gray); line-height: 1.7; flex: 1; }
+  .policy-card-orgs {
+    font-size: 0.72rem; color: var(--gray); font-style: italic;
+    border-top: 1px solid var(--border); padding-top: 0.65rem; margin-top: 0.25rem;
+    line-height: 1.5;
+  }
+  .policy-card-cta {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.78rem; font-weight: 700; color: var(--green);
+    text-decoration: none; margin-top: 0.25rem; transition: color 0.15s;
+  }
+  .policy-card-cta:hover { color: var(--navy); }
+  .policy-card-cta svg { transition: transform 0.15s; }
+  .policy-card-cta:hover svg { transform: translateX(3px); }
+
+  /* ── EVIDENCE STATS ── */
+  .evidence-section {
+    background: var(--navy);
+    border-radius: 16px; padding: 2.5rem 2.25rem;
+    margin-bottom: 0;
+  }
+  .evidence-heading {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800;
+    color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.5rem;
+  }
+  .evidence-sub { font-size: 0.88rem; color: var(--on-dark-body); line-height: 1.65; margin-bottom: 2rem; max-width: 540px; }
+  .evidence-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.1rem;
+  }
+  .evidence-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 1.4rem 1.35rem;
+    border-top: 3px solid var(--cyan);
+  }
+  .evidence-card-stat {
+    font-size: 0.85rem; font-weight: 700; color: var(--white);
+    line-height: 1.5; margin-bottom: 0.5rem;
+  }
+  .evidence-card-source {
+    font-size: 0.72rem; color: var(--on-dark-muted); font-style: italic;
+  }
+
+  /* ── COALITION SECTION ── */
+  .coalition-section {
+    background: var(--navy);
+    border-radius: 16px; padding: 2.75rem 2.5rem;
+    text-align: center;
+  }
+  .coalition-tag {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--cyan);
+    display: block; margin-bottom: 0.6rem;
+  }
+  .coalition-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 800;
+    color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.75rem;
+  }
+  .coalition-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0;
+  }
+  .coalition-logo-item {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  }
+  .coalition-logo-img { height: 52px; width: auto; }
+  .coalition-logo-placeholder {
+    width: 110px; height: 52px;
+    background: rgba(255,255,255,0.1); border: 1.5px dashed rgba(255,255,255,0.2);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.62rem; font-weight: 600; color: rgba(255,255,255,0.45);
+    text-align: center; line-height: 1.3; padding: 0.35rem;
+  }
+  .coalition-logo-label { font-size: 0.65rem; color: var(--on-dark-muted); font-weight: 600; }
+  .coalition-desc { font-size: 0.88rem; color: var(--on-dark-body); line-height: 1.75; max-width: 620px; margin: 0 auto 1.75rem; }
+  .coalition-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--green); color: var(--white);
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem;
+    padding: 0.8rem 1.65rem; border-radius: 10px;
+    text-decoration: none; transition: background 0.18s, transform 0.18s;
+    box-shadow: 0 4px 20px rgba(27,107,58,0.35);
+  }
+  .coalition-cta:hover { background: #155230; transform: translateY(-2px); }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { border-top: 1.5px solid var(--border); padding: 3.5rem 2rem 5rem; }
+  .contact-section-inner { max-width: 720px; margin: 0 auto; }
+  .contact-form { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); }
+  .form-group input, .form-group textarea, .form-group select {
+    border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 0.65rem 0.85rem; font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem; color: var(--navy); background: var(--white);
+    outline: none; transition: border-color 0.15s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,107,58,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+  .form-submit {
+    background: var(--green); color: var(--white);
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.8rem 1.75rem; border-radius: 10px; border: none;
+    cursor: pointer; align-self: flex-start;
+    transition: background 0.15s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(27,107,58,0.25);
+  }
+  .form-submit:hover { background: #155230; transform: translateY(-1px); }
+  .form-note { font-size: 0.72rem; color: var(--gray); font-style: italic; margin-top: 0.5rem; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-submit { width: 100%; } }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); padding: 2rem; text-align: center; font-size: 0.72rem; color: var(--on-dark-muted); }
+  footer a { color: var(--on-dark-muted); text-decoration: underline; }
+  footer a:hover { color: var(--cyan); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .page-body { padding: 2rem 1.25rem 4rem; }
+    .evidence-section { padding: 2rem 1.25rem; }
+    .coalition-section { padding: 2rem 1.25rem; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="index.html" aria-label="We Will Vote — return to home">We Will <span>Vote</span></a>
+    <div class="site-nav-links">
+      <a class="site-nav-link" href="index.html">Home</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="wwv-campaign.html">Campaign</a>
+      <a class="site-nav-link" href="resources.html">For Sites</a>
+      <a class="site-nav-link" href="email-tool.html">For Organizers</a>
+      <a class="site-nav-link active" href="advocacy.html" aria-current="page">Advocacy</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="make-a-plan.html">Make a Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow" aria-hidden="true">Advocacy · Institute for Responsible Government</span>
+    <h1>Policies That Support Healthy Communities</h1>
+    <p class="page-header-desc">Nonpartisan policy campaigns that make it easier for every eligible voter to participate — because communities where everyone has a voice are healthier communities.</p>
+  </div>
+</header>
+
+<main id="main-content">
+<div class="page-body">
+
+  <!-- IRG PARTNERSHIP SECTION -->
+  <section class="section-block" aria-labelledby="irg-heading">
+    <span class="sec-label" aria-hidden="true">Founding Partner</span>
+    <h2 class="sec-title" id="irg-heading">Our Policy Backbone</h2>
+    <p class="sec-desc">The We Will Vote policy agenda is powered by a coalition of organizations committed to civic health — led by the Institute for Responsible Government.</p>
+
+    <div class="irg-card">
+      <div class="irg-card-top">
+        <div class="irg-logo-placeholder" aria-hidden="true">IRG Logo</div>
+        <div class="irg-card-heading">
+          <span class="irg-card-tag">Founding Partner · Policy &amp; Coalition Lead</span>
+          <div class="irg-card-name">Institute for Responsible Government</div>
+          <div class="irg-card-formerly">Formerly: Healthy Democracy Healthy People</div>
+        </div>
+      </div>
+      <div class="irg-card-body">
+        <p class="irg-card-desc">IRG is a nonpartisan organization dedicated to strengthening civic participation as a foundation of community health. As a founding partner of We Will Vote, IRG leads policy and coalition strategy to make civic engagement a healthcare priority across the United States. IRG works across organizational, state, and national levels — providing the evidence base, the relationships, and the policy frameworks that move institutions to act.</p>
+        <a class="irg-cta" href="#">
+          Learn more about IRG
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- POLICY CAMPAIGNS SECTION -->
+  <section class="section-block" aria-labelledby="campaigns-heading">
+    <span class="sec-label" aria-hidden="true">Policy Campaigns</span>
+    <h2 class="sec-title" id="campaigns-heading">Four Policy Areas We Champion</h2>
+    <p class="sec-desc">These are evidence-based, nonpartisan policy approaches endorsed by major public health organizations — and championed by the We Will Vote coalition.</p>
+
+    <div class="policy-grid">
+
+      <!-- Card 1: Time to Vote -->
+      <article class="policy-card" aria-labelledby="policy1-title">
+        <div class="policy-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b6b3a" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="policy-card-label">Workplace Policy</span>
+        <h3 class="policy-card-title" id="policy1-title">Time Off to Vote</h3>
+        <p class="policy-card-body">Every eligible voter deserves the time and flexibility to cast their ballot. We champion organizational policies that ensure health workers can vote without sacrificing a shift — from flexible scheduling to paid leave on Election Day. The evidence is clear: removing practical barriers to voting increases civic participation across all communities.</p>
+        <p class="policy-card-orgs">Supported by the Society for Human Resource Management, Nonprofit Vote</p>
+        <a class="policy-card-cta" href="#">
+          See our model policy
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 2: Voter-Friendly Healthcare Sites -->
+      <article class="policy-card" aria-labelledby="policy2-title">
+        <div class="policy-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b6b3a" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <span class="policy-card-label">Facility Policy</span>
+        <h3 class="policy-card-title" id="policy2-title">Voter-Friendly Healthcare Sites</h3>
+        <p class="policy-card-body">Hospitals, clinics, and health centers are trusted institutions at the heart of every community. We support health organizations that open their facilities as voter registration sites, polling places, or ballot drop-off locations — meeting community members where they already come for care. Simple, practical, and powerful.</p>
+        <p class="policy-card-orgs">Endorsed by HRSA guidance on nonpartisan voter registration in FQHCs</p>
+        <a class="policy-card-cta" href="resources.html">
+          Become a voter-friendly site
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 3: Civic Health in Clinical Training -->
+      <article class="policy-card" aria-labelledby="policy3-title">
+        <div class="policy-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b6b3a" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <span class="policy-card-label">Education Policy</span>
+        <h3 class="policy-card-title" id="policy3-title">Civic Health in Healthcare Education</h3>
+        <p class="policy-card-body">The next generation of health workers should understand that civic engagement is part of patient care. We support integrating civic health literacy — understanding how elections, local governance, and civic participation affect community health — into medical, nursing, public health, and community health worker training programs.</p>
+        <p class="policy-card-orgs">Supported by Association of American Medical Colleges, APHA</p>
+        <a class="policy-card-cta" href="#">
+          Download the curriculum guide
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 4: Voter Assistance in Clinical Settings -->
+      <article class="policy-card" aria-labelledby="policy4-title">
+        <div class="policy-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1b6b3a" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <span class="policy-card-label">Clinical Policy</span>
+        <h3 class="policy-card-title" id="policy4-title">Voter Assistance in Clinical Settings</h3>
+        <p class="policy-card-body">A brief conversation about voter registration during a healthcare visit is legal, evidence-based, and increasingly recognized as a best practice in community health. HRSA has explicitly encouraged federally qualified health centers to support nonpartisan voter registration. We provide the tools, training, and materials to make it easy — without ever crossing into partisan territory.</p>
+        <p class="policy-card-orgs">Endorsed by HRSA, AMA, APHA, County Health Rankings</p>
+        <a class="policy-card-cta" href="resources.html">
+          Get clinical tools
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- EVIDENCE SECTION -->
+  <section class="section-block" aria-labelledby="evidence-heading">
+    <div class="evidence-section">
+      <span class="sec-label" style="color:#6ecf8c;" aria-hidden="true">The Research</span>
+      <h2 class="evidence-heading" id="evidence-heading">The Evidence Is Clear</h2>
+      <p class="evidence-sub">Civic participation is not a political issue — it is a public health issue. These findings come from peer-reviewed research and major public health institutions.</p>
+
+      <div class="evidence-grid">
+        <div class="evidence-card">
+          <p class="evidence-card-stat">"States with more inclusive voting policies have better public health outcomes across multiple indicators, including premature mortality and infant health."</p>
+          <p class="evidence-card-source">— Health &amp; Democracy Index</p>
+        </div>
+        <div class="evidence-card">
+          <p class="evidence-card-stat">"Healthy People 2030 lists increasing voter participation as a core public health objective — a first in federal health policy."</p>
+          <p class="evidence-card-source">— U.S. Department of Health and Human Services (HHS)</p>
+        </div>
+        <div class="evidence-card">
+          <p class="evidence-card-stat">"Communities with higher voter participation report better self-rated health, lower premature mortality, and stronger social cohesion."</p>
+          <p class="evidence-card-source">— Peer-reviewed public health research</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- COALITION SECTION -->
+  <section class="section-block" aria-labelledby="coalition-heading">
+    <div class="coalition-section">
+      <span class="coalition-tag">Policy Coalition</span>
+      <h2 class="coalition-title" id="coalition-heading">We Will Vote Policy Coalition</h2>
+
+      <div class="coalition-logos" aria-label="Coalition partner logos">
+        <div class="coalition-logo-item">
+          <img class="coalition-logo-img" src="Vot-ER_2024_logomark_fullcolor.png" alt="Vot-ER logo"/>
+          <span class="coalition-logo-label">Vot-ER</span>
+        </div>
+        <div class="coalition-logo-item">
+          <div class="coalition-logo-placeholder" aria-label="IRG logo placeholder">IRG Logo</div>
+          <span class="coalition-logo-label">Institute for Responsible Government</span>
+        </div>
+        <div class="coalition-logo-item">
+          <div class="coalition-logo-placeholder" aria-label="Civic Health Alliance logo placeholder">Civic Health Alliance</div>
+          <span class="coalition-logo-label">Civic Health Alliance</span>
+        </div>
+      </div>
+
+      <p class="coalition-desc">The We Will Vote policy coalition — led by Vot-ER, the Institute for Responsible Government, and the Civic Health Alliance — advances nonpartisan civic health policy at the organizational, state, and national level. We believe that healthy communities are communities where every eligible voter has a voice.</p>
+
+      <a class="coalition-cta" href="mailto:partnerships@vot-er.org">
+        Join the coalition
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" aria-labelledby="advocacy-contact-heading">
+  <div class="contact-section-inner">
+    <span class="sec-label" aria-hidden="true">Get in Touch</span>
+    <h2 class="sec-title" id="advocacy-contact-heading">Advocacy &amp; policy inquiries</h2>
+    <p class="sec-desc" style="margin-bottom:1.75rem;">Interested in partnering on policy, joining the coalition, or learning more about our advocacy campaigns? Reach out — we respond within 2 business days.</p>
+    <form class="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+      <input type="hidden" name="_subject" value="We Will Vote — Advocacy Inquiry">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="adv-name">Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="adv-name" name="name" placeholder="Dr. Jordan Rivera" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="adv-org">Organization</label>
+          <input type="text" id="adv-org" name="organization" placeholder="Your organization" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="adv-role">Role / Title</label>
+          <input type="text" id="adv-role" name="role" placeholder="Chief Policy Officer">
+        </div>
+        <div class="form-group">
+          <label for="adv-email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="adv-email" name="email" placeholder="you@yourorg.org" required autocomplete="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adv-interest">Area of interest</label>
+        <select id="adv-interest" name="interest">
+          <option value="">Select one…</option>
+          <option value="time-to-vote">Time Off to Vote — Workplace Policy</option>
+          <option value="voter-friendly-sites">Voter-Friendly Healthcare Sites</option>
+          <option value="clinical-training">Civic Health in Clinical Training</option>
+          <option value="clinical-assistance">Voter Assistance in Clinical Settings</option>
+          <option value="coalition">Join the We Will Vote Policy Coalition</option>
+          <option value="other">Other / General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="adv-message">How can we help?</label>
+        <textarea id="adv-message" name="message" placeholder="Tell us about your organization and how you'd like to engage with We Will Vote advocacy work…"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">Replies go to partnerships@vot-er.org — we respond within 2 business days.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>We Will Vote · Powered by <a href="https://vot-er.org" target="_blank" rel="noopener noreferrer">Vot-ER<span class="sr-only"> (opens in new tab)</span></a> · Institute for Responsible Government · Civic Health Alliance</p>
+  <p style="margin-top:0.4rem;">Nonpartisan civic engagement · Voting as a Social Determinant of Health</p>
+</footer>
+
+</body>
+</html>
