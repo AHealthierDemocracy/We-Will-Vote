@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="For We Will Vote organizers — ready-to-send partner outreach email templates and monthly newsletter blurbs for recruiting health organizations into the We Will Vote campaign."/>
+<meta name="theme-color" content="#083a51"/>
+<title>For Organizers — We Will Vote</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute; top: -100%; left: 0;
+    background: #38b1ea; color: #083a51;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.75rem 1.5rem; z-index: 9999;
+    text-decoration: none; border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus { top: 0; outline: 3px solid #083a51; outline-offset: 2px; }
+
+  /* ── GLOBAL FOCUS ── */
+  :focus-visible {
+    outline: 3px solid #38b1ea;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── SR-ONLY ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :root {
+    --navy:    #083a51;
+    --blue:    #106a94;
+    --cyan:    #38b1ea;
+    --cyan-lt: #dce2e8;
+    --green:   #1b6b3a;
+    --green-lt:#e8f5e9;
+    --light:   #eef0f4;
+    --offwhite:#f6f7f9;
+    --gray:    #4a5568;
+    --white:   #ffffff;
+    --tip-bg:  #fffbeb;
+    --tip-bdr: #f59e0b;
+    --on-dark-body: #a8cfe0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--navy); min-height: 100vh; }
+
+  .layout {
+    max-width: 1000px; margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    display: grid; grid-template-columns: 256px 1fr; gap: 1.75rem; align-items: start;
+  }
+
+  .sidebar { position: sticky; top: 76px; }
+  .sidebar-label { font-size: 0.61rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem; }
+  .nav { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .nav-btn {
+    background: var(--white); border: 1.5px solid var(--cyan-lt); border-radius: 10px;
+    padding: 0.65rem 0.9rem; cursor: pointer; text-align: left; transition: border-color 0.15s, transform 0.15s; width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+  .nav-btn:hover { border-color: var(--cyan); transform: translateX(2px); }
+  .nav-btn.active { background: var(--navy); border-color: var(--navy); }
+  .nav-num { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.1rem; }
+  .nav-btn.active .nav-num { color: var(--on-dark-body); }
+  .nav-title { font-size: 0.82rem; font-weight: 600; color: var(--navy); display: block; line-height: 1.3; }
+  .nav-btn.active .nav-title { color: var(--white); }
+  .nav-when { font-size: 0.7rem; color: var(--gray); display: block; margin-top: 0.1rem; line-height: 1.3; }
+  .nav-btn.active .nav-when { color: var(--on-dark-body); }
+
+  .card { background: var(--white); border-radius: 14px; box-shadow: 0 4px 24px rgba(8,58,81,0.09); overflow: hidden; animation: rise 0.2s ease; }
+  @keyframes rise { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+
+  .card-top { background: var(--navy); padding: 1.3rem 1.7rem 1.1rem; }
+  .card-num { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.25rem; }
+  .card-title { font-size: 1.3rem; font-weight: 800; color: var(--white); }
+  .card-when { font-size: 0.76rem; color: var(--on-dark-body); margin-top: 0.25rem; font-style: italic; }
+
+  .card-body { padding: 1.5rem 1.7rem; }
+
+  .tip {
+    background: var(--tip-bg); border-left: 4px solid var(--tip-bdr);
+    border-radius: 0 8px 8px 0; padding: 0.65rem 0.9rem;
+    font-size: 0.79rem; color: #78350f; line-height: 1.5; margin-bottom: 1.2rem;
+  }
+  .tip strong { color: #92400e; }
+
+  .field-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem; }
+
+  .subject-box {
+    background: var(--light); border: 1.5px solid var(--cyan-lt); border-radius: 8px;
+    padding: 0.65rem 1rem; font-size: 0.9rem; font-weight: 600; color: var(--navy);
+    margin-bottom: 1.3rem; user-select: all;
+  }
+
+  .meta { border: 1.5px solid var(--cyan-lt); border-radius: 10px; overflow: hidden; margin-bottom: 1.3rem; }
+  .meta-row { display: grid; grid-template-columns: 100px 1fr; }
+  .meta-row + .meta-row { border-top: 1px solid var(--cyan-lt); }
+  .meta-k { background: var(--navy); color: var(--white); font-size: 0.7rem; font-weight: 600; padding: 0.5rem 0.75rem; display: flex; align-items: center; }
+  .meta-v { background: #f8f9fa; font-size: 0.8rem; color: var(--navy); padding: 0.5rem 0.85rem; display: flex; align-items: center; }
+
+  .body-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.4rem; }
+  .body-hint { font-size: 0.67rem; color: var(--gray); font-style: italic; }
+
+  .email-body {
+    width: 100%; min-height: 280px;
+    border: 1.5px solid var(--cyan-lt); border-radius: 10px;
+    padding: 1rem 1.1rem; font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem; line-height: 1.8; color: var(--navy);
+    background: #fafafa; resize: vertical; outline: none; transition: border-color 0.15s;
+  }
+  .email-body:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,107,58,0.1); }
+
+  .ph-legend { font-size: 0.67rem; color: var(--gray); margin-top: 0.45rem; font-style: italic; }
+  .ph-legend mark { background: #fff3cd; color: #7B0000; border-radius: 3px; padding: 0 3px; font-style: normal; font-weight: 600; }
+
+  .actions {
+    display: flex; gap: 0.55rem; flex-wrap: wrap; align-items: center;
+    padding: 1.1rem 1.7rem; background: var(--light); border-top: 1.5px solid var(--cyan-lt);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.55rem 1rem; border-radius: 8px; font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem; font-weight: 600; cursor: pointer; border: none;
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s; text-decoration: none; white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-copy    { background: var(--navy); color: var(--white); }
+  .btn-copy:hover { background: var(--blue); box-shadow: 0 4px 14px rgba(8,58,81,0.22); }
+  .btn-gmail   { background: #ea4335; color: var(--white); }
+  .btn-gmail:hover { background: #c5221f; }
+  .btn-outlook { background: #0078d4; color: var(--white); }
+  .btn-outlook:hover { background: #005a9e; }
+
+  .toast { font-size: 0.76rem; font-weight: 600; color: #15803d; display: flex; align-items: center; gap: 0.35rem; opacity: 0; transition: opacity 0.25s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 680px) {
+    .layout { grid-template-columns: 1fr; padding: 1rem 1rem 3rem; }
+    .sidebar { position: static; }
+    .nav { flex-direction: row; flex-wrap: wrap; }
+    .nav-btn { flex: 1 1 46%; }
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: #083a51;
+    background-image: linear-gradient(135deg, #083a51 0%, #0c5070 60%, #106a94 100%);
+    padding: 2.75rem 2rem;
+    border-bottom: 3px solid var(--green);
+  }
+  .page-header-inner { max-width: 1000px; margin: 0 auto; }
+  .page-eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.5rem; }
+  .page-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.1; }
+  .page-header-desc { font-size: 0.92rem; color: #c8e8f5; line-height: 1.65; max-width: 560px; }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 5rem; border-top: 1.5px solid #dce2e8; }
+  .contact-section-inner { max-width: 720px; }
+  .contact-form { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); }
+  .form-group input, .form-group textarea {
+    border: 1.5px solid #dce2e8; border-radius: 8px;
+    padding: 0.65rem 0.85rem; font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem; color: var(--navy); background: #ffffff;
+    outline: none; transition: border-color 0.15s;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,107,58,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+  .form-submit {
+    background: var(--green); color: #ffffff;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.8rem 1.75rem; border-radius: 10px; border: none;
+    cursor: pointer; align-self: flex-start;
+    transition: background 0.15s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(27,107,58,0.25);
+  }
+  .form-submit:hover { background: #155230; transform: translateY(-1px); }
+  .form-note { font-size: 0.72rem; color: var(--gray); font-style: italic; margin-top: 0.5rem; }
+  .sec-label-org { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem; }
+  .sec-title-org { font-size: 1.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .sec-desc-org { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-submit { width: 100%; } }
+
+  /* ── SHARED SITE NAV ── */
+  .site-nav {
+    background: #083a51;
+    padding: 0 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  .site-nav-inner {
+    max-width: 1020px; margin: 0 auto;
+    height: 60px; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .site-nav-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+    color: #ffffff; letter-spacing: -0.02em;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  .site-nav-logo span { color: #38b1ea; }
+  .site-nav-links { display: flex; align-items: center; gap: 0.25rem; }
+  .site-nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.76rem; font-weight: 500;
+    color: #a8cfe0;
+    text-decoration: none; padding: 0.35rem 0.7rem;
+    border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap;
+  }
+  .site-nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.07); }
+  .site-nav-link.active { color: #38b1ea; font-weight: 600; background: rgba(56,177,234,0.1); }
+  .site-nav-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+  @media (max-width: 640px) {
+    .site-nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
+    .site-nav-divider { display: none; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="index.html" aria-label="We Will Vote — return to home">We Will <span>Vote</span></a>
+    <div class="site-nav-links">
+      <a class="site-nav-link" href="index.html">Home</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="wwv-campaign.html">Campaign</a>
+      <a class="site-nav-link" href="resources.html">For Sites</a>
+      <a class="site-nav-link active" href="email-tool.html" aria-current="page">For Organizers</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="make-a-plan.html">Make a Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow">For We Will Vote Organizers</span>
+    <h1>Partner Outreach Templates</h1>
+    <p class="page-header-desc">Ready-to-send emails and newsletter blurbs for recruiting health organizations into We Will Vote — from the first warm introduction to organizational sign-on follow-ups.</p>
+  </div>
+</header>
+
+<!-- Live region for toast announcements -->
+<div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="live-region"></div>
+
+<main id="main-content">
+<div class="layout">
+  <aside class="sidebar" aria-label="Email template navigation">
+    <div class="sidebar-label" id="template-nav-label">Choose a template</div>
+    <nav class="nav" id="nav" aria-labelledby="template-nav-label"></nav>
+  </aside>
+  <div id="main-panel" aria-live="polite" aria-atomic="false"></div>
+</div>
+</main>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" aria-labelledby="org-contact-heading">
+  <div class="contact-section-inner">
+    <span class="sec-label-org" aria-hidden="true">Get Support</span>
+    <h2 class="sec-title-org" id="org-contact-heading">Need help with your outreach?</h2>
+    <p class="sec-desc-org" style="margin-bottom:1.75rem;">Reach out to the We Will Vote team — whether you need guidance on partner strategy, help customizing templates, or support navigating a specific relationship.</p>
+    <form class="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+      <input type="hidden" name="_subject" value="We Will Vote — Organizer Inquiry">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="org-name">Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="org-name" name="name" placeholder="Your Name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="org-affil">Organization</label>
+          <input type="text" id="org-affil" name="organization" placeholder="Vot-ER / Civic Health Alliance" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="org-email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="org-email" name="email" placeholder="you@vot-er.org" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="org-message">What do you need help with?</label>
+        <textarea id="org-message" name="message" placeholder="Describe the partner relationship, where you're at in the process, or any specific questions..."></textarea>
+      </div>
+      <div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">Replies go to partnerships@vot-er.org — we respond within 2 business days.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer style="background:#083a51; padding:2rem; text-align:center; font-size:0.72rem; color:#7fb8d4;" role="contentinfo">
+  <p>We Will Vote · Powered by <a href="https://vot-er.org" target="_blank" rel="noopener noreferrer" style="color:#7fb8d4; text-decoration:underline;">Vot-ER<span class="sr-only"> (opens in new tab)</span></a> · Civic Health Alliance</p>
+  <p style="margin-top:0.35rem;">Nonpartisan civic engagement · Voting as a Social Determinant of Health</p>
+</footer>
+
+<script>
+const T = [
+  {
+    id:1, title:"Warm Intro Request", timing:"Same day",
+    when:"A mutual contact offered to connect you",
+    tip: null,
+    subject:"Connecting with [Mutual Contact Name]'s Network — We Will Vote",
+    meta:[
+      {k:"Send",  v:"Same day or within 24 hours"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Partner Contact Name]"},
+      {k:"From",  v:"[Your Name], [Your Title / Affiliation]"},
+    ],
+    body:`Hi [First Name],
+
+[Mutual Contact Name] speaks highly of the work you're doing at [Organization] and thought we should connect. I'm glad they did.
+
+I'm reaching out about We Will Vote — a national nonpartisan civic health campaign powered by Vot-ER and the Civic Health Alliance. Our premise is straightforward: voting is a social determinant of health, and the health sector — 22 million workers strong — has both the opportunity and the obligation to lead by example.
+
+Healthcare workers are 12–23% less likely to vote than the general population. We Will Vote is our coordinated effort to close that gap, and to make the health sector a genuine force for civic health in communities across the country.
+
+Based on the work you're doing at [Organization], I think you'd find real alignment here. Would you have 20 minutes for a call? I'd love to hear what you're already doing in this space and share how We Will Vote could support your work.
+
+I'm available [Date Option 1] or [Date Option 2] — happy to work around your schedule.
+
+Warmly,
+[Your Name]
+[Your Title / Affiliation]`
+  },
+  {
+    id:2, title:"Connector Introduction", timing:"Within 24 hrs",
+    when:"Your connector sends this on your behalf",
+    tip:"Share this with your connector and ask them to send it from their own inbox, cc'ing you. The ask is simple: lend their name. Their credibility does the work.",
+    subject:"You Two Should Connect — We Will Vote",
+    meta:[
+      {k:"Send",  v:"Within 24 hours of connector agreeing"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[New Contact First Name + Email]"},
+      {k:"CC",    v:"[Your Name + Email]"},
+      {k:"From",  v:"[Connector Name] — sent from their inbox"},
+    ],
+    body:`Hi [New Contact First Name],
+
+I'm connecting you with [Your Name], who is leading partnership engagement for We Will Vote — a national nonpartisan civic health campaign powered by Vot-ER and the Civic Health Alliance. The core idea: voting is a social determinant of health, and the health sector needs to show up for democracy.
+
+I know your work at [Organization] — and I think this is exactly the kind of initiative you'd want to be part of. With 22 million health workers and communities whose health outcomes track directly with civic participation, the timing and the stakes are clear.
+
+I'll let [Your Name] take it from here. [New Contact First Name], [he/she/they] is cc'd and will follow up directly.
+
+Warmly,
+[Connector Name]
+[Connector Title / Organization]`
+  },
+  {
+    id:3, title:"Post-Meeting Follow-Up", timing:"Within 48 hrs",
+    when:"After any first meeting with a partner",
+    tip: null,
+    subject:"Great Connecting — Next Steps for We Will Vote",
+    meta:[
+      {k:"Send",  v:"Within 48 hours — while the conversation is fresh"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Partner Contact Name]"},
+      {k:"From",  v:"[Your Name], [Your Title / Affiliation]"},
+    ],
+    body:`Hi [First Name],
+
+Thank you for your time — that conversation reinforced exactly why this work matters, and why the right partners make all the difference.
+
+Two concrete ways to move forward:
+
+1. Take the Organizational Pledge. Signing [Organization] onto We Will Vote takes under five minutes and sends a powerful signal to your staff, members, and community. I've attached the link: https://tally.so/r/3xY2dG
+
+2. Send an Internal Pledge Invitation. Before [the next civic holiday / Election Day / National Voter Registration Day], send one email to your staff encouraging them to take the individual pledge at vote.health/WWV. I've attached a ready-to-use newsletter blurb — it takes less than 10 minutes to deploy.
+
+I've also attached a Vot-ER one-pager for anyone on your team who wants the full picture.
+
+What's the easiest next step from your end?
+
+Warmly,
+[Your Name]
+[Your Title / Affiliation]`
+  },
+  {
+    id:4, title:"Re-Engagement", timing:"2–3 weeks out",
+    when:"A prospect has gone quiet after prior contact",
+    tip: null,
+    subject:"Still Here — and Civic Health Month Is Coming",
+    meta:[
+      {k:"Send",  v:"2–3 weeks after last contact with no response"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Partner Contact Name]"},
+      {k:"From",  v:"[Your Name], [Your Title / Affiliation]"},
+    ],
+    body:`Hi [First Name],
+
+I know inboxes fill up fast. I'm following up because the window to activate before [National Voter Registration Day / Election Day / Civic Health Month] is narrowing, and I don't want [your organization / your members / your patients] to miss it.
+
+Civic participation is shaped by who shows up — and who gets reminded to. Health organizations are uniquely positioned to close that gap. The ask is genuinely small: one email, one pledge invitation, one nudge toward a voting plan. The impact compounds across your entire network.
+
+I've re-attached our one-pager. If now isn't the right time, I'd rather know that than wonder. Either way, I'm glad to make the next step as easy as possible.
+
+Could we find 15 minutes this week?
+
+Warmly,
+[Your Name]
+[Your Title / Affiliation]`
+  },
+  {
+    id:5, title:"Leadership Follow-Up", timing:"Within 48 hrs",
+    when:"After meeting CAOs, CMOs, or senior leadership",
+    tip:"Personalize the subject line with something from your conversation — e.g. 'Following Up from [Event]' — to cut through a busy leadership inbox.",
+    subject:"Following Up — Two Ways to Move We Will Vote Forward",
+    meta:[
+      {k:"Send",  v:"Within 48 hours — momentum is perishable at the leadership level"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Partner Contact Name]"},
+      {k:"From",  v:"[Your Name], [Your Title / Affiliation]"},
+    ],
+    body:`Hi [First Name],
+
+Thank you for making time — and for creating space for this conversation with your [leadership team / colleagues]. It's clear your organization takes whole-person care seriously. That's exactly the alignment We Will Vote is built on.
+
+Two asks, both with low lift and real impact:
+
+1. Sign the Organizational Commitment. Formally signing [Organization] onto We Will Vote sends a public signal that your institution believes civic health is health. The pledge is nonpartisan, takes under five minutes, and we'll feature your organization in campaign communications: https://tally.so/r/3xY2dG
+
+2. Connect Us to Your Network. We're working to reach every hospital, FQHC, health system, and professional association in the country. A warm introduction from you — to peer institutions, member organizations, or your hospital system — is the fastest way to expand that reach. Your endorsement opens doors we can't knock on cold.
+
+I've also attached a Vot-ER one-pager for anyone on your team who wants to understand the national infrastructure behind this work.
+
+What's the most natural next step from your side?
+
+Warmly,
+[Your Name]
+[Your Title / Affiliation]`
+  },
+  {
+    id:6, title:"August Newsletter Blurb", timing:"Civic Health Month",
+    when:"Internal newsletter — August (Civic Health Month)",
+    tip:"Send during the first week of August to allow time for staff to act before the month's end. Pair with a pledge graphic from the Evergreen Comms Kit.",
+    subject:"It's Civic Health Month — Join Us in the We Will Vote Pledge",
+    meta:[
+      {k:"Send",  v:"First week of August"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Staff / Members / Network]"},
+      {k:"From",  v:"[Leadership Name / Communications Team]"},
+    ],
+    body:`[NEWSLETTER BLURB — August / Civic Health Month]
+
+August is Civic Health Month — and [Organization] is proud to be part of We Will Vote, a national nonpartisan campaign mobilizing the health sector to vote and champion civic participation.
+
+Why does this matter? Voting is a social determinant of health. Communities with high voter participation have better health outcomes. And healthcare workers — 22 million of us — are 12–23% less likely to vote than the general public. We can change that.
+
+This month, we're inviting every member of our team to take the We Will Vote individual pledge — a commitment to vote, to encourage others to vote, and to support civic health in our community.
+
+👉 Take the pledge: https://tally.so/r/3xY2dG
+🗳️ Find voter resources: vote.health/WWV
+
+This campaign is nonpartisan. It is not affiliated with any political party or candidate. It is a commitment to democracy as a foundation of community health.`
+  },
+  {
+    id:7, title:"September Newsletter Blurb", timing:"National Voter Reg. Day",
+    when:"Internal newsletter — September 17 (National Voter Registration Day)",
+    tip:"Send on or just before September 17. Include the vote.health/WWV link prominently so recipients can check registration in one click.",
+    subject:"September 17: National Voter Registration Day — Are You Registered?",
+    meta:[
+      {k:"Send",  v:"September 14–17"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Staff / Members / Network]"},
+      {k:"From",  v:"[Leadership Name / Communications Team]"},
+    ],
+    body:`[NEWSLETTER BLURB — September / National Voter Registration Day]
+
+September 17 is National Voter Registration Day — the single biggest voter registration day of the year.
+
+As part of We Will Vote, [Organization] is encouraging every team member to take two minutes to confirm their registration and make a plan to vote. If you've moved, changed your name, or just want to double-check, now is the moment.
+
+Check your registration and find state-specific voter information: vote.health/WWV
+
+Haven't taken the We Will Vote pledge yet? Join thousands of health workers committing to vote and to champion civic participation: https://tally.so/r/3xY2dG
+
+This is nonpartisan. We're not here to tell you how to vote — we're here to make sure you can.`
+  },
+  {
+    id:8, title:"October Newsletter Blurb", timing:"Vote Early Day",
+    when:"Internal newsletter — October / National Vote Early Day (Oct 29)",
+    tip:"Send October 27–28 to give staff time to plan early voting before October 29. Include your state or city's early voting locations if possible.",
+    subject:"Vote Early — Make Your Plan Before October 29",
+    meta:[
+      {k:"Send",  v:"October 27–28"},
+      {k:"Time",  v:"Morning (9–11 AM recommended)"},
+      {k:"To",    v:"[Staff / Members / Network]"},
+      {k:"From",  v:"[Leadership Name / Communications Team]"},
+    ],
+    body:`[NEWSLETTER BLURB — October / National Vote Early Day]
+
+October 29 is National Vote Early Day — and we're encouraging every member of our team to vote early if their state allows it.
+
+Early voting reduces Election Day crowding, gives you flexibility around shifts and schedules, and ensures your voice is counted even if something unexpected comes up. For health workers with demanding schedules, it's often the most reliable way to vote.
+
+Find your state's early voting options at vote.health/WWV.
+
+If you haven't yet made a voting plan, now is the time. Block 30 minutes on your calendar. Know your polling place. Bring the right ID. And if your colleagues haven't voted yet — remind them.
+
+We Will Vote is a nonpartisan campaign. We do not support or oppose any candidate or party. We believe every eligible voter should have the opportunity to participate.`
+  },
+];
+
+let active = 1;
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function render(){
+  document.getElementById('nav').innerHTML = T.map(t=>`
+    <button
+      class="nav-btn ${t.id===active?'active':''}"
+      onclick="sel(${t.id})"
+      aria-pressed="${t.id===active}"
+      aria-label="Template ${t.id}: ${t.title} — ${t.when}"
+    >
+      <span class="nav-num" aria-hidden="true">Template ${t.id} · ${t.timing}</span>
+      <span class="nav-title">${esc(t.title)}</span>
+      <span class="nav-when">${esc(t.when)}</span>
+    </button>`).join('');
+
+  const t = T.find(x=>x.id===active);
+  const bodyId = `email-body-${t.id}`;
+  const subjectId = `subject-display-${t.id}`;
+  const tipId = `tip-${t.id}`;
+
+  document.getElementById('main-panel').innerHTML = `
+    <div class="card" role="region" aria-labelledby="card-title-${t.id}">
+      <div class="card-top">
+        <div class="card-num">Template ${t.id}</div>
+        <h2 class="card-title" id="card-title-${t.id}">${esc(t.title)}</h2>
+        <div class="card-when">${esc(t.when)}</div>
+      </div>
+      <div class="card-body">
+        ${t.tip ? `
+          <div class="tip" role="note" id="${tipId}">
+            <strong>Tip:</strong> ${esc(t.tip)}
+          </div>` : ''}
+
+        <label class="field-label" for="${subjectId}">Subject Line</label>
+        <div class="subject-box" id="${subjectId}" tabindex="0" role="textbox" aria-readonly="true" aria-label="Subject line: ${esc(t.subject)}">${esc(t.subject)}</div>
+
+        <table class="meta" role="presentation" aria-label="Email sending details">
+          ${t.meta.map(m=>`
+            <tr class="meta-row">
+              <th class="meta-k" scope="row">${esc(m.k)}</th>
+              <td class="meta-v">${esc(m.v)}</td>
+            </tr>`).join('')}
+        </table>
+
+        <div class="body-header">
+          <label class="field-label" for="${bodyId}" style="margin:0">Email Body</label>
+          <span class="body-hint" id="body-hint-${t.id}">Edit here or in your mail client</span>
+        </div>
+        <textarea
+          class="email-body"
+          id="${bodyId}"
+          spellcheck="true"
+          aria-describedby="body-hint-${t.id} placeholders-hint-${t.id}${t.tip ? ' ' + tipId : ''}"
+          aria-label="Email body for template ${t.id}: ${esc(t.title)}"
+        >${esc(t.body)}</textarea>
+        <p class="ph-legend" id="placeholders-hint-${t.id}">Fields in <mark>[brackets]</mark> are placeholders — swap them before sending.</p>
+      </div>
+      <div class="actions" role="group" aria-label="Actions for this template">
+        <button class="btn btn-copy" onclick="copy('${bodyId}', '${subjectId}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy to clipboard
+        </button>
+        <button class="btn btn-gmail" onclick="send('gmail', '${bodyId}', '${subjectId}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.279l8.073-5.786C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          Open in Gmail<span class="sr-only"> (opens in new tab)</span>
+        </button>
+        <button class="btn btn-outlook" onclick="send('outlook', '${bodyId}', '${subjectId}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V6.95q0-.41.3-.7Q.58 6 1 6h6.1V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72q.46.26.66.55z"/></svg>
+          Open in Outlook<span class="sr-only"> (opens in new tab)</span>
+        </button>
+        <span class="toast" id="toast" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+          Copied!
+        </span>
+      </div>
+    </div>`;
+}
+
+function sel(id){
+  active = id;
+  render();
+  requestAnimationFrame(() => {
+    const heading = document.getElementById(`card-title-${id}`);
+    if(heading){ heading.setAttribute('tabindex', '-1'); heading.focus(); }
+  });
+}
+
+function getBodyText(bodyId){ return document.getElementById(bodyId).value; }
+function getSubjectText(subjId){
+  const el = document.getElementById(subjId);
+  return el ? el.textContent : T.find(x=>x.id===active).subject;
+}
+
+function copy(bodyId, subjId){
+  const subj = getSubjectText(subjId);
+  const body = getBodyText(bodyId);
+  navigator.clipboard.writeText(`Subject: ${subj}\n\n${body}`).then(()=>{
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    toast.setAttribute('aria-hidden', 'false');
+    document.getElementById('live-region').textContent = 'Email copied to clipboard.';
+    setTimeout(()=>{
+      toast.classList.remove('show');
+      toast.setAttribute('aria-hidden', 'true');
+      document.getElementById('live-region').textContent = '';
+    }, 2000);
+  });
+}
+
+function send(client, bodyId, subjId){
+  const s = encodeURIComponent(getSubjectText(subjId));
+  const b = encodeURIComponent(getBodyText(bodyId));
+  window.open(client==='gmail'
+    ? `https://mail.google.com/mail/?view=cm&su=${s}&body=${b}`
+    : `https://outlook.live.com/owa/?path=/mail/action/compose&subject=${s}&body=${b}`,
+    '_blank', 'noopener,noreferrer');
+}
+
+render();
+</script>
+</body>
+</html>

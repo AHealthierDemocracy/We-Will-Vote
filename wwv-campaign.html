@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="We Will Vote Campaign — take the individual pledge, sign your organization on, and join thousands of health workers building a healthier democracy.">
+  <meta name="theme-color" content="#083A51">
+  <title>Campaign — We Will Vote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── SKIP LINK ── */
+    .skip-link {
+      position: absolute; top: -100%; left: 0;
+      background: #38b1ea; color: #083A51;
+      font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+      padding: 0.75rem 1.5rem; z-index: 9999;
+      text-decoration: none; border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid #083A51; outline-offset: 2px; }
+
+    /* ── GLOBAL FOCUS ── */
+    :focus-visible {
+      outline: 3px solid #38b1ea;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ── SR-ONLY ── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    :root {
+      --navy:    #083A51;
+      --blue:    #106a94;
+      --cyan:    #38b1ea;
+      --green:   #1b6b3a;
+      --green-lt:#e8f5e9;
+      --white:   #ffffff;
+      --offwhite:#f6f7f9;
+      --light:   #eef0f4;
+      --border:  #dce2e8;
+      --gray:    #4a5568;
+      --on-dark-body: #a8cfe0;
+      --on-dark-muted: #7fb8d4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', Arial, sans-serif; background: var(--offwhite); color: #333; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--navy);
+      background-image: linear-gradient(135deg, #083A51 0%, #0c5070 60%, #106a94 100%);
+      padding: 3rem 2rem;
+      border-bottom: 3px solid var(--green);
+    }
+    .page-header-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .page-header-logo { flex-shrink: 0; }
+    .page-header-logo img { height: 72px; width: auto; }
+    .page-eyebrow {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--cyan);
+      display: block; margin-bottom: 0.5rem;
+    }
+    .page-header h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800;
+      color: var(--white); letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .page-header-desc { font-size: 0.95rem; color: #c8e8f5; line-height: 1.6; max-width: 520px; }
+    @media (max-width: 600px) {
+      .page-header-inner { flex-direction: column; text-align: center; }
+      .page-header-desc { margin: 0 auto; }
+    }
+
+    /* ── TRACKER ── */
+    .tracker-section {
+      background: var(--white); border-radius: 12px; padding: 1.75rem;
+      margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-top: 4px solid var(--green);
+    }
+    .tracker-title { font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .progress-container { background: #e9ecef; border-radius: 50px; height: 28px; width: 100%; overflow: hidden; margin-bottom: 0.75rem; }
+    .progress-bar {
+      background: linear-gradient(90deg, var(--green), #2d9e5c);
+      height: 100%; border-radius: 50px;
+      display: flex; align-items: center; justify-content: flex-end; padding-right: 12px;
+      color: white; font-weight: 700; font-size: 13px;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1rem; }
+    .stat-item dd { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
+    .stat-item dt { font-size: 0.72rem; color: var(--gray); font-weight: 500; margin-top: 0.1rem; }
+
+    /* ── MAIN GRID ── */
+    .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    @media (max-width: 800px) { .main-grid { grid-template-columns: 1fr; } }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white); border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 1.5rem; border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .card-header {
+      padding: 0.9rem 1.25rem; font-size: 0.9rem; font-weight: 700;
+      color: var(--navy); background: #f8f9fa;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .card-header.gold { background: #fff8e6; color: #7a5700; border-bottom-color: #f0dfa0; }
+    .card-body { padding: 1.5rem; }
+
+    /* ── STEP ROWS ── */
+    .step-row { display: flex; align-items: flex-start; margin-bottom: 1.25rem; }
+    .step-row:last-of-type { margin-bottom: 0; }
+    .step-icon {
+      width: 38px; height: 38px; background: var(--green-lt); color: var(--green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem; margin-right: 1rem; flex-shrink: 0;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.7rem 1.25rem; border-radius: 8px;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      cursor: pointer; border: none; text-align: center;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-green  { background: var(--green); color: var(--white); box-shadow: 0 4px 12px rgba(27,107,58,0.25); }
+    .btn-green:hover { background: #155230; box-shadow: 0 6px 16px rgba(27,107,58,0.35); }
+    .btn-navy { background: var(--navy); color: var(--white); }
+    .btn-navy:hover { background: #0a4d6b; }
+    .btn-full { width: 100%; font-size: 1rem; padding: 0.9rem; }
+    .btn-outline {
+      background: transparent; color: var(--green);
+      border: 2px solid var(--green); width: 100%;
+    }
+    .btn-outline:hover { background: var(--green); color: var(--white); }
+
+    /* ── PLEDGE BOX ── */
+    .pledge-box {
+      background: var(--green-lt); border: 1.5px solid rgba(27,107,58,0.25);
+      border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;
+    }
+    .pledge-box p { font-size: 0.88rem; color: #1a3d25; line-height: 1.7; font-style: italic; }
+    .pledge-box .pledge-actions { margin-top: 0.9rem; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+    .pledge-box .pledge-actions li { font-size: 0.82rem; color: #1a3d25; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .pledge-box .pledge-actions li::before { content: '✓'; font-weight: 700; color: var(--green); flex-shrink: 0; margin-top: 0.05rem; }
+
+    /* ── LEADERBOARD ── */
+    .leaderboard-table { width: 100%; border-collapse: collapse; }
+    .leaderboard-table th {
+      text-align: left; font-size: 0.72rem; color: var(--gray);
+      padding-bottom: 0.6rem; border-bottom: 2px solid var(--border);
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .leaderboard-table td { padding: 0.75rem 0; border-bottom: 1px solid #f0f2f5; font-size: 0.88rem; font-weight: 500; }
+    .rank-num { font-weight: 800; color: var(--blue); width: 28px; display: inline-block; }
+    .rank-num.top { color: var(--green); }
+
+    /* ── DASHBOARD PLACEHOLDER ── */
+    .dashboard-placeholder {
+      background: var(--navy); border-radius: 10px;
+      aspect-ratio: 16 / 7; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.75rem;
+      margin-bottom: 1rem;
+      border: 2px dashed rgba(56,177,234,0.3);
+      position: relative; overflow: hidden;
+    }
+    .dashboard-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, rgba(56,177,234,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dashboard-placeholder-icon { color: rgba(56,177,234,0.5); }
+    .dashboard-placeholder-label { font-size: 0.82rem; font-weight: 600; color: #c8e8f5; }
+    .dashboard-placeholder-sub { font-size: 0.68rem; color: var(--on-dark-muted); font-style: italic; text-align: center; max-width: 200px; }
+
+    /* ── ABOUT VOT-ER ── */
+    .about-voter { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem; border: 1px solid var(--border); }
+
+    /* ── PAGE FOOTER ── */
+    .page-footer {
+      background: var(--navy); border-radius: 12px;
+      padding: 2rem; text-align: center; margin-top: 1rem;
+    }
+    .page-footer img { height: 40px; margin-bottom: 0.75rem; }
+    .page-footer p { font-size: 0.82rem; color: #c8e8f5; margin-top: 0.3rem; line-height: 1.5; }
+    .page-footer .muted { font-size: 0.7rem; color: var(--on-dark-muted); margin-top: 0.75rem; }
+
+    /* ── SHARED SITE NAV ── */
+    .site-nav {
+      background: #083a51; padding: 0 2rem;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+    .site-nav-inner {
+      max-width: 1020px; margin: 0 auto;
+      height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .site-nav-logo {
+      font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 800;
+      color: #ffffff; letter-spacing: -0.02em;
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+    }
+    .site-nav-logo span { color: #38b1ea; }
+    .site-nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .site-nav-link {
+      font-family: 'Poppins', sans-serif; font-size: 0.76rem; font-weight: 500;
+      color: #a8cfe0; text-decoration: none; padding: 0.35rem 0.7rem;
+      border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .site-nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.07); }
+    .site-nav-link.active { color: #38b1ea; font-weight: 600; background: rgba(56,177,234,0.1); }
+    .site-nav-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+    @media (max-width: 640px) {
+      .site-nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
+      .site-nav-divider { display: none; }
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="index.html" aria-label="We Will Vote — return to home">We Will <span>Vote</span></a>
+    <div class="site-nav-links">
+      <a class="site-nav-link" href="index.html">Home</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link active" href="wwv-campaign.html" aria-current="page">Campaign</a>
+      <a class="site-nav-link" href="resources.html">For Sites</a>
+      <a class="site-nav-link" href="email-tool.html">For Organizers</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="make-a-plan.html">Make a Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-logo">
+      <img src="Vot-ER_2024_logomark_fullcolor.png" alt="Vot-ER logo" />
+    </div>
+    <div>
+      <span class="page-eyebrow">We Will Vote · Nationwide · 2025–2026</span>
+      <h1>Thrive Through Civic Health</h1>
+      <p class="page-header-desc">A coordinated, nonpartisan movement mobilizing America's 22 million health workers to vote and champion civic participation — because when health workers vote, communities thrive.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- PLEDGE TRACKER -->
+    <section class="tracker-section" aria-labelledby="tracker-title">
+      <div class="tracker-title" id="tracker-title">We Will Vote Goal: 10,000 Pledges</div>
+      <div class="progress-container">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow="8"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-label="We Will Vote pledge goal: 842 of 10,000 pledges taken (8% complete)"
+          style="width: 8%;"
+        >
+          <span aria-hidden="true">8%</span>
+        </div>
+      </div>
+      <p style="font-size:0.72rem; color:var(--gray); margin-top:0.5rem; text-align:right;">842 of 10,000 pledges taken · Updated March 2025</p>
+
+      <!-- NATIONAL DASHBOARD -->
+      <div style="margin-top:1.5rem; border-top:1px solid var(--border); padding-top:1.25rem;">
+        <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          National Pledge Dashboard
+        </div>
+        <div class="dashboard-placeholder" role="img" aria-label="National pledge tracker dashboard — chart coming soon">
+          <div class="dashboard-placeholder-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><polyline points="3 15 8 10 12 14 17 8 21 11"/></svg>
+          </div>
+          <div class="dashboard-placeholder-label" aria-hidden="true">Dashboard Coming Soon</div>
+          <div class="dashboard-placeholder-sub" aria-hidden="true">National pledge engagement chart will appear here</div>
+        </div>
+        <p style="font-size:0.65rem; color:var(--gray); font-style:italic; text-align:center; margin-top:0.4rem;">Replace the placeholder above with your pledge dashboard embed or chart.</p>
+      </div>
+    </section>
+
+    <div class="main-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="left-col">
+
+        <!-- CAMPAIGN QUOTE -->
+        <div class="card">
+          <div class="card-body">
+            <blockquote style="font-size:0.85rem; color:var(--gray); font-style:italic; background:#f8f9fa; padding:1rem 1.1rem; border-radius:8px; border-left:3px solid var(--green); line-height:1.65;">
+              "Every day in clinic, I see how the decisions made in voting booths ripple through our communities as health outcomes. When health workers step back from civic life, we leave the people we serve without some of our most powerful advocates. We Will Vote is our commitment to show up — not just in the exam room, but in our democracy."
+              <footer style="margin-top:0.5rem; font-style:normal; font-size:0.75rem; color:#555;">— We Will Vote Campaign</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- THE PLEDGE -->
+        <div class="card" aria-labelledby="pledge-heading">
+          <div class="card-header" id="pledge-heading">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            The Individual Pledge
+          </div>
+          <div class="card-body">
+            <div class="pledge-box">
+              <p>"I know that the health of my community hinges on the health of our democracy and that robust civic participation is required to advance health and racial equity. I join with my colleagues and institutions across the health sector to assert: <strong>We Will Vote.</strong>"</p>
+              <ul class="pledge-actions" aria-label="Pledge commitments">
+                <li>I will vote in upcoming elections</li>
+                <li>I will work with my professional organizations and/or workplace to promote civic health</li>
+                <li>I will encourage friends, family, and colleagues to vote</li>
+                <li>I will support elections through volunteer roles in my community</li>
+              </ul>
+            </div>
+            <a href="https://tally.so/r/3xY2dG" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-full">
+              Take the Pledge
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span class="sr-only"> (opens in new tab)</span>
+            </a>
+            <p style="text-align:center; font-size:0.72rem; color:var(--gray); margin-top:0.6rem;">Nonpartisan · Free · Takes under a minute</p>
+          </div>
+        </div>
+
+        <!-- THREE WAYS TO GET INVOLVED -->
+        <div class="card" aria-labelledby="get-involved-heading">
+          <div class="card-header" id="get-involved-heading">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Three Ways to Get Involved
+          </div>
+          <div class="card-body">
+            <ol style="list-style:none; padding:0; margin-bottom:1.5rem;">
+              <li class="step-row">
+                <div class="step-icon" aria-hidden="true">1</div>
+                <div>
+                  <h3 style="font-size:0.95rem; font-weight:700; color:var(--navy); margin-bottom:0.3rem;">Take the Individual Pledge</h3>
+                  <p style="font-size:0.85rem; color:var(--gray);">Commit to vote and to promote voter participation in your workplace and community. The pledge is quick, nonpartisan, and amplified by every colleague who joins you.</p>
+                </div>
+              </li>
+              <li class="step-row">
+                <div class="step-icon" aria-hidden="true">2</div>
+                <div>
+                  <h3 style="font-size:0.95rem; font-weight:700; color:var(--navy); margin-bottom:0.3rem;">Sign Your Organization On</h3>
+                  <p style="font-size:0.85rem; color:var(--gray);">Make an organizational commitment to We Will Vote. Health systems, professional associations, FQHCs, and community health organizations are all welcome to sign on.</p>
+                </div>
+              </li>
+              <li class="step-row">
+                <div class="step-icon" aria-hidden="true">3</div>
+                <div>
+                  <h3 style="font-size:0.95rem; font-weight:700; color:var(--navy); margin-bottom:0.3rem;">Share Your Story</h3>
+                  <p style="font-size:0.85rem; color:var(--gray);">Record a 30-second video about why voting matters to you and your patients. Stories from health workers are among the most powerful voices in civic life.</p>
+                </div>
+              </li>
+            </ol>
+            <a href="resources.html" class="btn btn-green btn-full">
+              Browse Resources &amp; Tools
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <p style="text-align:center; font-size:0.72rem; color:var(--gray); margin-top:0.6rem;">Nonpartisan · Free · HIPAA-Compliant</p>
+          </div>
+        </div>
+
+        <!-- SHARE YOUR STORY -->
+        <div class="card" aria-labelledby="story-heading">
+          <div class="card-header" id="story-heading">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Share Your Story
+          </div>
+          <div class="card-body">
+            <p style="font-size:0.85rem; color:var(--gray); margin-bottom:1.1rem; line-height:1.65;">
+              Has civic engagement changed how you practice? We want to hear from health workers across the country about why voting matters to your patients and your community.
+            </p>
+            <a href="stories.html" class="btn btn-outline">
+              Share Your Story
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
+
+        <!-- ORGANIZATION LEADERBOARD -->
+        <div class="card" aria-labelledby="leaderboard-heading">
+          <div class="card-header gold" id="leaderboard-heading">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Organization Leaderboard
+          </div>
+          <div class="card-body" style="padding:0;">
+            <table class="leaderboard-table" style="padding:1rem; display:block;" aria-labelledby="leaderboard-heading">
+              <caption class="sr-only">Organization leaderboard showing pledges by participating health organization</caption>
+              <thead>
+                <tr>
+                  <th scope="col" style="width:15%">Rank</th>
+                  <th scope="col" style="width:55%">Organization</th>
+                  <th scope="col" style="width:30%; text-align:right;">Pledges</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="rank-num top" aria-label="Rank 1">1</span></td>
+                  <td>Community Health Network</td>
+                  <td style="text-align:right;"><strong>214</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 2">2</span></td>
+                  <td>American Public Health Assoc.</td>
+                  <td style="text-align:right;"><strong>187</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 3">3</span></td>
+                  <td>Urban Health Plan</td>
+                  <td style="text-align:right;"><strong>143</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 4">4</span></td>
+                  <td>National Nurses United</td>
+                  <td style="text-align:right;"><strong>98</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 5">5</span></td>
+                  <td>Federally Qualified HC Alliance</td>
+                  <td style="text-align:right;"><strong>76</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 6">6</span></td>
+                  <td>Health Equity Institute</td>
+                  <td style="text-align:right;"><strong>59</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 7">7</span></td>
+                  <td>Regional Medical Center</td>
+                  <td style="text-align:right;"><strong>43</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num" aria-label="Rank 8">8</span></td>
+                  <td>Community Care Coalition</td>
+                  <td style="text-align:right;"><strong>22</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding:0.75rem 1rem; background:#fafafa; font-size:0.68rem; text-align:center; color:var(--gray); border-top:1px solid var(--border);">
+              Placeholder data · Updated March 2025
+            </div>
+          </div>
+        </div>
+
+        <!-- VOTER RESOURCES LINK -->
+        <div class="card">
+          <div class="card-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Voter Resources
+          </div>
+          <div class="card-body">
+            <p style="font-size:0.84rem; color:var(--gray); line-height:1.65; margin-bottom:1rem;">Find state-specific voter registration information, polling place locators, and election dates at the official We Will Vote voter resource portal.</p>
+            <a href="https://vote.health/WWV" target="_blank" rel="noopener noreferrer" class="btn btn-navy" style="width:100%; justify-content:center;">
+              vote.health/WWV
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span class="sr-only"> (opens in new tab)</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABOUT VOT-ER -->
+    <section class="about-voter card" aria-labelledby="about-voter-heading">
+      <div class="card-header" id="about-voter-heading">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        About Vot-ER
+      </div>
+      <div class="card-body">
+        <p style="font-size:0.88rem; color:var(--gray); line-height:1.75; margin-bottom:0.9rem;">
+          Vot-ER is bridging a gap in care with a groundbreaking prescription: civic engagement. Our mission is to empower patients and healthcare professionals to address the root causes of health disparities through civic participation. Our HIPAA-compliant resources promote employee happiness, combat burnout, and cultivate deeper trust between healthcare professionals and patients.
+        </p>
+        <p style="font-size:0.88rem; color:var(--gray); line-height:1.75;">
+          Since 2020, we've expanded our nonpartisan work to <strong style="color:var(--navy);">1,700+ participating sites</strong> reaching <strong style="color:var(--navy);">80,000+ individuals</strong> — with an <strong style="color:var(--green);">80% voter turnout rate nationally in 2024</strong>. We Will Vote is our most ambitious coordinated action yet: mobilizing the entire health sector as a force for civic health. Featured by <em>The New York Times</em>, CNN, <em>Washington Post</em>, NBC, NPR, and PBS NewsHour.
+        </p>
+      </div>
+    </section>
+
+    <!-- PAGE FOOTER -->
+    <footer class="page-footer" role="contentinfo">
+      <img src="Vot-ER_2024_logomark_fullcolor.png" alt="Vot-ER logo" />
+      <p style="font-size:0.9rem; font-weight:700; color:var(--white);">We Will Vote × Vot-ER</p>
+      <p>In partnership with the Civic Health Alliance &amp; Healthy Democracy Healthy People</p>
+      <p>This campaign is nonpartisan. We do not support or oppose any candidate or party.</p>
+      <p class="muted">Empowering democracy through healthcare since 2020</p>
+    </footer>
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="We Will Vote resource center — communications toolkits, field guides, Vot-ER badges, custom digital materials, and civic holiday calendars for health sector organizations."/>
+<meta name="theme-color" content="#083a51"/>
+<title>For Sites — We Will Vote</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute; top: -100%; left: 0;
+    background: #38b1ea; color: #083a51;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.75rem 1.5rem; z-index: 9999;
+    text-decoration: none; border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus { top: 0; outline: 3px solid #083a51; outline-offset: 2px; }
+
+  /* ── GLOBAL FOCUS ── */
+  :focus-visible {
+    outline: 3px solid #38b1ea;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── SR-ONLY ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :root {
+    --navy:   #083a51;
+    --blue:   #106a94;
+    --cyan:   #38b1ea;
+    --cyan-lt:#dce2e8;
+    --green:  #1b6b3a;
+    --green-lt:#e8f5e9;
+    --white:  #ffffff;
+    --offwhite:#f6f7f9;
+    --light:  #eef0f4;
+    --gray:   #4a5568;
+    --border: #dce2e8;
+    --on-dark-body: #a8cfe0;
+    --on-dark-muted: #7fb8d4;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; background: var(--offwhite); color: var(--navy); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--navy);
+    background-image: linear-gradient(135deg, #083a51 0%, #0c5070 60%, #106a94 100%);
+    padding: 3.5rem 2rem 3rem;
+  }
+  .page-header-inner { max-width: 1020px; margin: 0 auto; }
+  .page-eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.6rem; display: block; }
+  .page-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.7rem; }
+  .page-desc { font-size: 0.95rem; color: #c8e8f5; line-height: 1.7; max-width: 520px; }
+
+  /* ── LAYOUT ── */
+  .page-body { max-width: 1020px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+  .section-block { margin-bottom: 3.5rem; }
+  .section-block:last-child { margin-bottom: 0; }
+  hr.section-divider { border: none; border-top: 1.5px solid var(--border); margin: 3rem 0; }
+
+  .sec-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem; }
+  .sec-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .sec-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 1.75rem; }
+
+  /* ── RESOURCE GRID ── */
+  .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.1rem; }
+
+  .resource-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 1.3rem 1.4rem;
+    display: flex; flex-direction: column; gap: 0.45rem;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    text-decoration: none; color: inherit;
+  }
+  .resource-card:hover { border-color: var(--green); box-shadow: 0 6px 24px rgba(27,107,58,0.1); transform: translateY(-2px); }
+  .resource-card-icon {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: var(--light); display: flex; align-items: center; justify-content: center; margin-bottom: 0.2rem;
+  }
+  .resource-card-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); }
+  .resource-card-title { font-size: 0.9rem; font-weight: 700; color: var(--navy); line-height: 1.35; }
+  .resource-card-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.6; flex: 1; }
+  .resource-card-action {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.76rem; font-weight: 600; color: var(--blue); margin-top: 0.3rem;
+  }
+  .resource-card-action svg { transition: transform 0.15s; }
+  .resource-card:hover .resource-card-action svg { transform: translateX(3px); }
+
+  /* ── EMAIL CTA ── */
+  .email-cta {
+    background: var(--navy); border-radius: 16px; padding: 2.2rem 2.4rem;
+    display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+  }
+  .email-cta-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 0.4rem; }
+  .email-cta-title { font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; line-height: 1.2; }
+  .email-cta-desc { font-size: 0.84rem; color: #c8e8f5; line-height: 1.65; }
+  .email-cta-list { display: flex; flex-direction: column; gap: 0.38rem; margin-top: 0.9rem; }
+  .email-cta-item { font-size: 0.76rem; color: var(--on-dark-body); display: flex; align-items: center; gap: 0.45rem; }
+  .email-cta-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+  .email-cta-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--green); color: var(--white);
+    font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 700;
+    padding: 0.75rem 1.4rem; border-radius: 10px;
+    text-decoration: none; white-space: nowrap; transition: background 0.15s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(27,107,58,0.3); flex-shrink: 0;
+  }
+  .email-cta-btn:hover { background: #155230; transform: translateY(-2px); }
+
+  /* ── CIVIC CALENDAR ── */
+  .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+  .calendar-item {
+    background: var(--white); border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 1.1rem 1.15rem; border-top: 3px solid var(--green);
+  }
+  .calendar-month { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.3rem; }
+  .calendar-event { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; line-height: 1.3; }
+  .calendar-desc { font-size: 0.76rem; color: var(--gray); line-height: 1.55; }
+
+  /* ── SOCIAL POSTS ── */
+  .social-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .social-post {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 1.1rem 1.25rem;
+    position: relative;
+  }
+  .social-post-platform {
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cyan); margin-bottom: 0.4rem; display: block;
+  }
+  .social-post-text { font-size: 0.84rem; color: var(--navy); line-height: 1.65; }
+  .social-post-copy {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    margin-top: 0.75rem; font-size: 0.72rem; font-weight: 600; color: var(--blue);
+    background: var(--light); border: 1px solid var(--border); border-radius: 6px;
+    padding: 0.3rem 0.65rem; cursor: pointer; font-family: 'Poppins', sans-serif;
+    transition: background 0.15s;
+  }
+  .social-post-copy:hover { background: var(--cyan-lt); }
+
+  /* ── EMAIL SIGNATURE SECTION ── */
+  .sig-preview {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.4rem;
+    font-size: 0.84rem; color: var(--navy); line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+  .sig-preview strong { font-weight: 700; }
+  .sig-preview .sig-line { color: var(--gray); font-size: 0.78rem; }
+  .sig-badge {
+    display: inline-block; background: var(--green); color: var(--white);
+    font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.55rem;
+    border-radius: 4px; letter-spacing: 0.05em; margin-top: 0.3rem;
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { padding: 3.5rem 2rem 5rem; border-top: 1.5px solid var(--border); }
+  .contact-section-inner { max-width: 720px; margin: 0 auto; }
+  .contact-form { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); }
+  .form-group input, .form-group textarea {
+    border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 0.65rem 0.85rem; font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem; color: var(--navy); background: var(--white);
+    outline: none; transition: border-color 0.15s;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,107,58,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+  .form-submit {
+    background: var(--green); color: var(--white);
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700;
+    padding: 0.8rem 1.75rem; border-radius: 10px; border: none;
+    cursor: pointer; align-self: flex-start;
+    transition: background 0.15s, transform 0.15s;
+    box-shadow: 0 4px 14px rgba(27,107,58,0.25);
+  }
+  .form-submit:hover { background: #155230; transform: translateY(-1px); }
+  .form-note { font-size: 0.72rem; color: var(--gray); font-style: italic; margin-top: 0.5rem; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-submit { width: 100%; } }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); padding: 2rem; text-align: center; font-size: 0.72rem; color: var(--on-dark-muted); }
+  footer a { color: var(--on-dark-muted); text-decoration: underline; }
+  footer a:hover { color: var(--cyan); }
+
+  @media (max-width: 640px) {
+    .page-body { padding: 2rem 1.25rem 4rem; }
+    .email-cta { grid-template-columns: 1fr; }
+    .email-cta-btn { width: 100%; justify-content: center; }
+  }
+
+  /* ── SHARED SITE NAV ── */
+  .site-nav {
+    background: #083a51;
+    padding: 0 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  .site-nav-inner {
+    max-width: 1020px; margin: 0 auto;
+    height: 60px; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .site-nav-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+    color: #ffffff; letter-spacing: -0.02em;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  .site-nav-logo span { color: #38b1ea; }
+  .site-nav-links { display: flex; align-items: center; gap: 0.25rem; }
+  .site-nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.76rem; font-weight: 500;
+    color: #a8cfe0;
+    text-decoration: none; padding: 0.35rem 0.7rem;
+    border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap;
+  }
+  .site-nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.07); }
+  .site-nav-link.active { color: #38b1ea; font-weight: 600; background: rgba(56,177,234,0.1); }
+  .site-nav-divider { width: 1px; height: 18px; background: rgba(255,255,255,0.15); margin: 0 0.4rem; }
+  @media (max-width: 640px) {
+    .site-nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
+    .site-nav-divider { display: none; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="index.html" aria-label="We Will Vote — return to home">We Will <span>Vote</span></a>
+    <div class="site-nav-links">
+      <a class="site-nav-link" href="index.html">Home</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="wwv-campaign.html">Campaign</a>
+      <a class="site-nav-link active" href="resources.html" aria-current="page">For Sites</a>
+      <a class="site-nav-link" href="email-tool.html">For Organizers</a>
+      <div class="site-nav-divider" aria-hidden="true"></div>
+      <a class="site-nav-link" href="make-a-plan.html">Make a Plan</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow" aria-hidden="true">For Health Organizations &amp; Sites</span>
+    <h1 class="page-title">Resources for your organization</h1>
+    <p class="page-desc">Everything your health organization needs to champion civic health — toolkits, field guides, Vot-ER badges, custom materials, and civic holiday campaigns. All free and nonpartisan.</p>
+  </div>
+</header>
+
+<main id="main-content">
+<div class="page-body">
+
+  <div style="background:var(--light); border:1.5px solid var(--border); border-radius:12px; padding:1rem 1.25rem; margin-bottom:2.5rem; display:flex; align-items:flex-start; gap:0.75rem; font-size:0.84rem; color:var(--gray); line-height:1.6;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong style="color:var(--navy);">This page is for healthcare sites and organizations</strong> — hospitals, FQHCs, clinics, health systems, and professional associations implementing We Will Vote. If you're an organizer recruiting partners, visit <a href="email-tool.html" style="color:var(--green); font-weight:600;">For Organizers</a>.</span>
+  </div>
+
+  <!-- TOOLKITS -->
+  <section class="section-block" aria-labelledby="toolkits-heading">
+    <span class="sec-label" aria-hidden="true">Campaign Toolkits</span>
+    <h2 class="sec-title" id="toolkits-heading">Toolkits for your organization</h2>
+    <p class="sec-desc">Download and deploy these campaign resources — built specifically for health sector organizations implementing We Will Vote.</p>
+
+    <div class="resource-grid">
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Communications Toolkit — social media copy, newsletter templates, and email signature banners (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <span class="resource-card-tag">Toolkit · Free</span>
+        <div class="resource-card-title">Communications Toolkit</div>
+        <p class="resource-card-desc">Ready-to-use social media copy, newsletter templates, email signature banners, and messaging guidance — everything you need to spread the We Will Vote message.</p>
+        <span class="resource-card-action" aria-hidden="true">Download toolkit <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Field Guide — actionable steps for organizations implementing We Will Vote (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <span class="resource-card-tag">Guide · Free</span>
+        <div class="resource-card-title">Field Guide</div>
+        <p class="resource-card-desc">A step-by-step guide with actionable implementation steps for health organizations of all sizes — from announcing internally to activating civic holidays.</p>
+        <span class="resource-card-action" aria-hidden="true">Download guide <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Organizing for Power Toolkit — resources for building civic health coalitions (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="17" cy="21" r="1"/><circle cx="9" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <span class="resource-card-tag">Toolkit · Free</span>
+        <div class="resource-card-title">Organizing for Power Toolkit</div>
+        <p class="resource-card-desc">Resources for building civic health coalitions within your institution, engaging leadership, and sustaining a culture of voter participation beyond election cycles.</p>
+        <span class="resource-card-action" aria-hidden="true">Download toolkit <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Storytelling Toolkit — guidance and prompts for sharing your civic health story (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <span class="resource-card-tag">Toolkit · Free</span>
+        <div class="resource-card-title">Storytelling Toolkit</div>
+        <p class="resource-card-desc">Story prompts, recording tips, and submission guidance for the 30-second video stories that make the health sector's civic voice real and compelling.</p>
+        <span class="resource-card-action" aria-hidden="true">Download toolkit <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Evergreen Communications Kit — monthly graphics and messaging for year-round civic health engagement (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <span class="resource-card-tag">Kit · Free</span>
+        <div class="resource-card-title">Evergreen Comms Kit</div>
+        <p class="resource-card-desc">Monthly graphics and messaging templates for year-round civic health communications — shareable on social media, in newsletters, and across digital channels.</p>
+        <span class="resource-card-action" aria-hidden="true">Download kit <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/badge/" target="_blank" rel="noopener noreferrer"
+         aria-label="Vot-ER Badges — free HIPAA-compliant wearable QR codes for voter registration (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <span class="resource-card-tag">Badge · Free</span>
+        <div class="resource-card-title">Vot-ER Badges</div>
+        <p class="resource-card-desc">A wearable QR code that lets patients and colleagues access voter registration in seconds — HIPAA-compliant, no paperwork, no political conversation required.</p>
+        <span class="resource-card-action" aria-hidden="true">Get your badge <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="resource-card" href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+         aria-label="Custom Digital Materials — branded We Will Vote graphics for your organization (opens in new tab)">
+        <div class="resource-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38b1ea" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="resource-card-tag">Custom · Free</span>
+        <div class="resource-card-title">Custom Digital Materials</div>
+        <p class="resource-card-desc">Request custom We Will Vote branded digital graphics, presentation decks, and patient-facing materials tailored to your organization's identity.</p>
+        <span class="resource-card-action" aria-hidden="true">Request materials <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- CIVIC HOLIDAYS -->
+  <section class="section-block" aria-labelledby="calendar-heading">
+    <span class="sec-label" aria-hidden="true">Civic Calendar</span>
+    <h2 class="sec-title" id="calendar-heading">Civic holidays to activate</h2>
+    <p class="sec-desc">Use these national civic holidays as hooks for your internal communications, social media posts, and voter mobilization activities. We Will Vote's Evergreen Comms Kit includes graphics for each.</p>
+
+    <div class="calendar-grid">
+      <div class="calendar-item">
+        <div class="calendar-month">August</div>
+        <div class="calendar-event">Civic Health Month</div>
+        <p class="calendar-desc">A full month to promote civic engagement in your organization — use the field guide and comms kit to plan activities, messaging, and pledge drives.</p>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">September 17</div>
+        <div class="calendar-event">National Voter Registration Day</div>
+        <p class="calendar-desc">The single biggest voter registration day of the year. Activate your Vot-ER badges, post to social media, and send a registration reminder to your staff and members.</p>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">October 7–11</div>
+        <div class="calendar-event">National Voter Education Week</div>
+        <p class="calendar-desc">Five days to educate your community about the ballot — ballot measures, local races, how to vote, and why it matters for health.</p>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">October 29</div>
+        <div class="calendar-event">National Vote Early Day</div>
+        <p class="calendar-desc">Encourage your staff, members, and patients to vote early. Share early voting locations and hours, and promote the make-a-plan tool.</p>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">November</div>
+        <div class="calendar-event">Election Day</div>
+        <p class="calendar-desc">The culmination of the campaign. Encourage flexible scheduling, share last-minute voting information, and celebrate your organization's civic health champions.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- EMAIL SIGNATURE BANNERS -->
+  <section class="section-block" aria-labelledby="sig-heading">
+    <span class="sec-label" aria-hidden="true">Email Signatures</span>
+    <h2 class="sec-title" id="sig-heading">Email signature banners</h2>
+    <p class="sec-desc">Add a We Will Vote banner to your email signature — a simple, always-on way to spread the word with every message you send. Sample signature below.</p>
+
+    <div class="sig-preview" aria-label="Sample email signature with We Will Vote badge">
+      <div><strong>Jordan Rivera, MPH</strong></div>
+      <div class="sig-line">Director of Community Health | Health Equity Institute</div>
+      <div class="sig-line">she/her · (555) 000-0000 · jordan@healthequityinstitute.org</div>
+      <div style="margin-top:0.6rem;">
+        <span class="sig-badge">WE WILL VOTE</span>
+        <span style="font-size:0.75rem; color:var(--gray); margin-left:0.5rem;">I'm committed to civic health. <a href="https://tally.so/r/3xY2dG" target="_blank" rel="noopener noreferrer" style="color:var(--green);">Take the pledge →</a></span>
+      </div>
+    </div>
+    <a href="https://vot-er.org/custom-materials/?reference=WWV" target="_blank" rel="noopener noreferrer"
+       style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.82rem; font-weight:600; color:var(--green); text-decoration:underline;">
+      Download signature banners
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <span class="sr-only"> (opens in new tab)</span>
+    </a>
+  </section>
+
+  <hr class="section-divider" aria-hidden="true"/>
+
+  <!-- SOCIAL MEDIA COPY -->
+  <section class="section-block" aria-labelledby="social-heading">
+    <span class="sec-label" aria-hidden="true">Social Media</span>
+    <h2 class="sec-title" id="social-heading">Sample social media posts</h2>
+    <p class="sec-desc">Copy, customize, and post these messages on your organization's social channels. Add your logo or a team photo for maximum engagement.</p>
+
+    <div class="social-grid">
+      <div class="social-post">
+        <span class="social-post-platform">All Platforms · General</span>
+        <p class="social-post-text">The health sector is 22 million strong — and we're committed to showing up at the ballot box. When health workers vote, our communities are healthier. Join us: <strong>#WeWillVote</strong> 🗳️ Take the pledge at vote.health/WWV</p>
+        <button class="social-post-copy" onclick="copyPost(this, 'The health sector is 22 million strong — and we\'re committed to showing up at the ballot box. When health workers vote, our communities are healthier. Join us: #WeWillVote 🗳️ Take the pledge at vote.health/WWV')" aria-label="Copy general social media post to clipboard">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy post
+        </button>
+      </div>
+      <div class="social-post">
+        <span class="social-post-platform">LinkedIn · Professional Pledge</span>
+        <p class="social-post-text">I'm proud to take the <strong>#WeWillVote</strong> pledge — committing to vote and to champion civic participation in my workplace and community. As a health worker, I know that voting is a social determinant of health. Healthcare workers are 12–23% less likely to vote than the general public. We can change that. Join me: vote.health/WWV #CivicHealth #HealthEquity</p>
+        <button class="social-post-copy" onclick="copyPost(this, 'I\'m proud to take the #WeWillVote pledge — committing to vote and to champion civic participation in my workplace and community. As a health worker, I know that voting is a social determinant of health. Healthcare workers are 12-23% less likely to vote than the general public. We can change that. Join me: vote.health/WWV #CivicHealth #HealthEquity')" aria-label="Copy LinkedIn post to clipboard">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy post
+        </button>
+      </div>
+      <div class="social-post">
+        <span class="social-post-platform">Twitter / X · National Voter Registration Day (Sep 17)</span>
+        <p class="social-post-text">Today is National Voter Registration Day! Are you registered to vote? Take 2 minutes to check — and share the link with a colleague. Vote is a social determinant of health. <strong>#NVRD #WeWillVote #CivicHealth</strong> → vote.health/WWV</p>
+        <button class="social-post-copy" onclick="copyPost(this, 'Today is National Voter Registration Day! Are you registered to vote? Take 2 minutes to check — and share the link with a colleague. Vote is a social determinant of health. #NVRD #WeWillVote #CivicHealth → vote.health/WWV')" aria-label="Copy National Voter Registration Day post to clipboard">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy post
+        </button>
+      </div>
+      <div class="social-post">
+        <span class="social-post-platform">Instagram / Facebook · Election Day</span>
+        <p class="social-post-text">Today is Election Day — and [Organization Name] is proud to stand with health workers across the country who know that democracy and health are inseparable. Did you vote? Tag us and let us know. 🗳️ <strong>#WeWillVote #VotingIsHealthcare</strong></p>
+        <button class="social-post-copy" onclick="copyPost(this, 'Today is Election Day — and [Organization Name] is proud to stand with health workers across the country who know that democracy and health are inseparable. Did you vote? Tag us and let us know. 🗳️ #WeWillVote #VotingIsHealthcare')" aria-label="Copy Election Day social post to clipboard">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy post
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CTA -->
+  <div class="email-cta" aria-labelledby="email-cta-heading">
+    <div>
+      <span class="email-cta-tag">For Organizers</span>
+      <div class="email-cta-title" id="email-cta-heading">Ready-to-send partner outreach templates</div>
+      <p class="email-cta-desc">Use our email template builder to recruit health organizations into We Will Vote — from the first warm introduction to senior leadership follow-ups.</p>
+      <ul class="email-cta-list" aria-label="What the organizer tool includes">
+        <li class="email-cta-item">Five ready-to-use email templates</li>
+        <li class="email-cta-item">Monthly newsletter blurb templates</li>
+        <li class="email-cta-item">One-click copy, Gmail, and Outlook launchers</li>
+        <li class="email-cta-item">Timing guidance for every touchpoint</li>
+      </ul>
+    </div>
+    <a href="email-tool.html" class="email-cta-btn">
+      Open Email Tool
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+</main>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" aria-labelledby="site-contact-heading">
+  <div class="contact-section-inner">
+    <span class="sec-label" aria-hidden="true">Get in Touch</span>
+    <h2 class="sec-title" id="site-contact-heading">Ready to set up your organization?</h2>
+    <p class="sec-desc" style="margin-bottom:1.75rem;">Reach out and we'll help you get enrolled, access your toolkit, and connect with the We Will Vote community. All resources are free.</p>
+    <form class="contact-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+      <input type="hidden" name="_subject" value="We Will Vote — Healthcare Site Inquiry">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="site-name">Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="site-name" name="name" placeholder="Dr. Jordan Rivera" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="site-org">Organization</label>
+          <input type="text" id="site-org" name="organization" placeholder="Health Equity Institute" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="site-role">Role / Title</label>
+          <input type="text" id="site-role" name="role" placeholder="Chief Medical Officer">
+        </div>
+        <div class="form-group">
+          <label for="site-email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="site-email" name="email" placeholder="you@yourhospital.org" required autocomplete="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="site-message">How can we help?</label>
+        <textarea id="site-message" name="message" placeholder="Tell us about your organization and how you'd like to get involved with We Will Vote..."></textarea>
+      </div>
+      <div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note">Replies go to partnerships@vot-er.org — we respond within 2 business days.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>We Will Vote · Powered by <a href="https://vot-er.org" target="_blank" rel="noopener noreferrer">Vot-ER<span class="sr-only"> (opens in new tab)</span></a> · Civic Health Alliance</p>
+  <p style="margin-top:0.4rem;">Nonpartisan civic engagement · Voting as a Social Determinant of Health</p>
+</footer>
+
+<div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="copy-live-region"></div>
+
+<script>
+function copyPost(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    const orig = btn.innerHTML;
+    btn.textContent = 'Copied!';
+    document.getElementById('copy-live-region').textContent = 'Post copied to clipboard.';
+    setTimeout(function() {
+      btn.innerHTML = orig;
+      document.getElementById('copy-live-region').textContent = '';
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
